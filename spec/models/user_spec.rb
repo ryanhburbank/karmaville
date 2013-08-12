@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe User do
   it { should have_many(:karma_points) }
@@ -30,11 +31,11 @@ describe User do
     end
   end
 
-  describe '#total_karma' do
+  describe '#total_karma_points' do
     let(:user) { create(:user_with_karma, :total => 500, :points => 2) }
 
     it 'returns the total karma for the user' do
-      user.total_karma.should eq 500
+      user.reload.total_karma_points.should eq 500
     end
   end
 
