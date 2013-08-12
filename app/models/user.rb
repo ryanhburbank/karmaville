@@ -32,4 +32,8 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def self.page(page)
+    self.limit(10).offset(page.to_i*10)
+  end
 end
