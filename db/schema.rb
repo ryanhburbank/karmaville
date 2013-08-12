@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130812153138) do
   end
 
   add_index "karma_points", ["label"], :name => "index_karma_points_on_label"
+  add_index "karma_points", ["user_id"], :name => "index_karma_points_on_user_id"
   add_index "karma_points", ["value"], :name => "index_karma_points_on_value"
 
   create_table "users", :force => true do |t|
@@ -34,10 +35,6 @@ ActiveRecord::Schema.define(:version => 20130812153138) do
     t.integer  "total_karma_points"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email"
-  add_index "users", ["first_name"], :name => "index_users_on_first_name"
-  add_index "users", ["last_name"], :name => "index_users_on_last_name"
   add_index "users", ["total_karma_points"], :name => "index_users_on_total_karma_points"
-  add_index "users", ["username"], :name => "index_users_on_username"
 
 end
