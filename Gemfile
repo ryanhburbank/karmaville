@@ -15,10 +15,12 @@ end
 
 group :development, :test do
   gem 'rspec'
+  gem 'pry'
   gem 'rspec-rails'
 end
 
 group :test do
+  gem 'capybara'
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
