@@ -9,4 +9,29 @@
   <% @users.each do |user| %>
     <%= render 'user_row', :user => user %>
   <% end %>
+
 </table>
+
+<div class="pagination">
+  <ul>
+  <% unless @page_num == 1 %>
+     <li ><a href="/">First</a></li>
+     <li><a href="/?page=<%= @page_num-1 %>">Prev</a></li>
+  <% end %>
+    <li class="active"><a href="/?page=<%= @page_num %>"><%= @page_num %></a></li>
+  <% unless @page_num >= @count/20 -1 %>
+    <li><a href="/?page=<%= @page_num+1 %>"><%= @page_num +1 %></a></li>
+    <li><a href="/?page=<%= @page_num+2 %>"><%= @page_num +2 %></a></li>
+    <li><a href="/?page=<%= @page_num+3 %>"><%= @page_num +3 %></a></li>
+    <li><a href="/?page=<%= @page_num+4 %>"><%= @page_num +4 %></a></li>
+    <li><a href="/?page=<%= @page_num+1 %>">Next</a></li>
+  <% end %>
+  <% if @page_num >= @count/20 -1 %>
+    <li class='disabled'><a href="/?page=<%= @count/20 -1 %>">Last</a></li>
+  <% else %>
+     <li><a href="/?page=<%= @count/20 -1 %>">Last</a></li>
+  <% end %>
+  </ul>
+</div>
+
+
